@@ -17,7 +17,24 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
   - app can be built using the cli is using a frontend framework
 
 ### Building the app
-    // Here is where you should write a brief description of how I can run your app on my local environment
+
+#### NodeJS app providing API connected to Sqlite3 database containing table with random words providing CRUD operations.
+
+- install dependencies
+
+  ```
+  npm install
+  ```
+- run app
+
+  ```
+  npm start
+  ```
+  or development mode for autorefresh
+  ```
+  npm run dev
+  ```
+- run queries targetting `localhost:3000/api/words`
 
 ### Challanges
     1. Write a simple API that connects to a database of your choice (with only one column in one table as a database) and provide documentation on how to run locally
