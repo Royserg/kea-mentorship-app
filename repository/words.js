@@ -46,6 +46,21 @@ const save = (word) => new Promise((resolve, reject) => {
   )
 })
 
+// Edit a word
+const update = (id, word) => new Promise((resolve, reject) => {
+  db.run(
+    'UPDATE words SET word=$word WHERE id=$id',
+    [word, id],
+    function (err) {
+      if (err) {
+        reject(err)
+      } else {
+        resolve()
+      }
+    }
+  )
+})
+
 // Remove word of provided id
 const remove = (id) => new Promise((resolve, reject) => {
   db.run(
@@ -65,5 +80,6 @@ module.exports = {
   getAll,
   getOne,
   save,
+  update,
   remove
 }

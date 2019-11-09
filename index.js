@@ -1,5 +1,5 @@
 const express = require('express')
-const { getAll, getOne, save, remove } = require('./repository/words')
+const { getAll, getOne, save, update, remove } = require('./repository/words')
 
 const app = express()
 const PORT = 3000
@@ -42,6 +42,20 @@ app.post('/api/words', (req, res) => {
 
   save(word)
     .then(addedWord => res.send(addedWord))
+})
+
+// Edit a word
+app.put('/api/words/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const { word } = req.body
+
+  update(id, word)
+    .then(_ => {
+      res.status(204).send()
+    })
+    .catch(err => {
+      res.status(400).send(err)
+    })
 })
 
 // Remove a word
