@@ -34,7 +34,11 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
   ```
   npm run dev
   ```
-- run queries targetting `localhost:3000/api/words`
+- run queries targetting
+  `localhost:3000/api/words`
+
+  VS Code pluging: [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+  let's you run queries found in `./queries` directory in the editor
 
 ### Challanges
     1. Write a simple API that connects to a database of your choice (with only one column in one table as a database) and provide documentation on how to run locally
