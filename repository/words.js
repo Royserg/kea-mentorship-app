@@ -19,16 +19,19 @@ const getAll = () => new Promise((resolve, reject) => {
 
 // Fetch one word
 const getOne = (id) => new Promise((resolve, reject) => {
-  db.all('SELECT * FROM words WHERE id=$id', [id], (err, rows) => {
-    if (err) {
-      reject(err)
-    }
-    if (rows.length > 0) {
-      resolve(rows[0])
-    } else {
-      reject(new Error('not Found'))
-    }
-  })
+  db.all(
+    'SELECT * FROM words WHERE id=$id',
+    [id],
+    (err, rows) => {
+      if (err) {
+        reject(err)
+      }
+      if (rows.length > 0) {
+        resolve(rows[0])
+      } else {
+        reject(new Error('not Found'))
+      }
+    })
 })
 
 // Add word
@@ -51,7 +54,7 @@ const update = (id, word) => new Promise((resolve, reject) => {
   db.run(
     'UPDATE words SET word=$word WHERE id=$id',
     [word, id],
-    function (err) {
+    err => {
       if (err) {
         reject(err)
       } else {
@@ -66,7 +69,7 @@ const remove = (id) => new Promise((resolve, reject) => {
   db.run(
     'DELETE FROM words WHERE id=$id',
     [id],
-    function (err) {
+    err => {
       if (err) {
         reject(err)
       } else {
