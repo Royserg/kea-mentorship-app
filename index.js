@@ -71,4 +71,9 @@ app.delete('/api/words/:id', (req, res) => {
     })
 })
 
+// Fallback route
+app.get('*', (req, res) => {
+  res.status(404).send('Wrong path')
+})
+
 app.listen(PORT, () => console.log(`App running on port: ${PORT}`))
