@@ -30,7 +30,7 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
   ```
   npm start
   ```
-  or development mode for autorefresh
+  or development mode with hot reloading
   ```
   npm run dev
   ```
