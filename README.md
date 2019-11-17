@@ -40,6 +40,6 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
   VS Code pluging: [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
   let's you run queries found in `./queries` directory in the editor
 
-### Challanges
+### Challenges
     1. Write a simple API that connects to a database of your choice (with only one column in one table as a database) and provide documentation on how to run locally
     2. Your task is to create a login page, provide a user the ability to login, trace user login (i want to know when the user logged in last) and give him access to a page that can only be acessed if logged in. Modify your current database to host users (can remove your current table and create a new user table that contains basic user information, you can populate the table manually with fake users). About the restricted page, on refresh I want to still have access to the page. Hint: Use a token that is generated upon login and that you store in the backend and frontend. Whenever a user requests a restricted page send that token to the backend (together with his email that you store in the frontend) and only allow him to see the page if the values match.
