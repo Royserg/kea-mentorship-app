@@ -1,29 +1,25 @@
 {
   "name": "mentorship",
   "version": "1.0.0",
-  "description": "Application developed during mentorship",
-  "main": "index.js",
+  "description": "App developed during mentorship",
+  "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balaurzor/jakub_dev.git"
   },
-  "author": "Jakub",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/balaurzor/jakub_dev/issues"
   },
   "homepage": "https://github.com/balaurzor/jakub_dev#readme",
-  "dependencies": {
-    "express": "~4.17.1",
-    "sqlite3": "~4.1.0"
-  },
   "devDependencies": {
-    "nodemon": "~1.19.4",
-    "standard": "~14.3.1"
+    "concurrently": "^5.0.0"
   }
 }
