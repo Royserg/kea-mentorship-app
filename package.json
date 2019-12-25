@@ -6,7 +6,11 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
-    "client": "cd client && npm start"
+    "client": "cd client && npm start",
+    "postinstall": "concurrently \"npm run i:server\" \"npm run i:db\" \"npm run i:client\"",
+    "i:server": "(cd server && npm install);",
+    "i:db": "(cd db && npm install);",
+    "i:client": "(cd client && npm install);"
   },
   "repository": {
     "type": "git",
