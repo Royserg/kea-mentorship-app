@@ -23,6 +23,7 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
  - MongoDB
 
 ### Building the app
+
 - Install dependencies
 
   To install dependencies of all packages, from root directory run:
