@@ -16,26 +16,40 @@ Hey, welcome to your GitHub playground. You will find here all the requirements 
   - app is built using a bundler (see webpack for example, if you feel it's too much then leave it out)
   - app can be built using the cli is using a frontend framework
 
+
+#### Technologies used:
+ - NodeJS (Express)
+ - ReactJS
+ - MongoDB
+
 ### Building the app
+- Install dependencies
 
-#### NodeJS app providing API connected to Sqlite3 database containing table with random words providing CRUD operations.
-
-- install dependencies
-
+  To install dependencies of all packages, from root directory run:
   ```
   npm install
   ```
-- run app
+- Run app
 
+  To start application, run below command from root directory:
   ```
   npm start
   ```
-  or development mode with hot reloading
-  ```
-  npm run dev
-  ```
-- run queries targetting
-  `localhost:3000/api/words`
+
+- To login and see protected page, register a new account or use one of the accounts:
+  - email: `test` password: `test`
+  - email: `new` password: `new`
+
+- Extras:
+   - To run only frontend of application use:
+    ```
+    npm run client
+    ```
+    - Similarly, to run only server:
+    ```
+    npm run server
+    ```
+- `./queries` directory contain predifined queries to test api responses
 
   VS Code pluging: [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
   let's you run queries found in `./queries` directory in the editor
