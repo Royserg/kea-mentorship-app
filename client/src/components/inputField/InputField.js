@@ -1,6 +1,6 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   field: {
@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const InputField = ({ label, type, value, onChange }) => {
-
   const styles = useStyles()
 
   return (
@@ -18,11 +17,12 @@ const InputField = ({ label, type, value, onChange }) => {
       className={styles.field}
       label={label}
       type={type ? type : ''}
-      variant="outlined"
+      variant='outlined'
       value={value}
       onChange={onChange}
+      required
     />
   )
 }
 
-export default InputField;
+export default InputField
