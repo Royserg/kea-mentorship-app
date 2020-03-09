@@ -9,17 +9,21 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const InputField = ({ label, type, value, onChange }) => {
+// https://material-ui.com/api/text-field/
+const InputField = ({ label, name, type = 'text', value, onChange, error }) => {
   const styles = useStyles()
 
   return (
     <TextField
       className={styles.field}
+      name={name}
       label={label}
-      type={type ? type : ''}
+      type={type}
       variant='outlined'
       value={value}
       onChange={onChange}
+      error={error ? true : false}
+      helperText={error}
       required
     />
   )

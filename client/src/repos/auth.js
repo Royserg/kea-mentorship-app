@@ -9,3 +9,7 @@ export const authorize = (loginData) => {
 export const logoutUser = (email) => {
   return axios.post(`${URL}/logout`, { email })
 }
+
+export const validateToken = (email, token) => {
+  return axios.post(`${URL}/token`, { email, token })
+}

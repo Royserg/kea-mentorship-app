@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography'
 import Container from 'components/container/Container'
@@ -13,9 +13,13 @@ const Login = props => {
   const { showToast } = useContext(ToastContext)
   const { state } = useLocation()
 
-  const displayToast = (msg, type) => {
-    showToast(msg, type)
-  }
+  useEffect(() => {
+    if (state) {
+      const { message, type } = state
+      showToast(message, type)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
 
   const handleFormSubmit = loginData => {
     authorize(loginData)
@@ -26,17 +30,10 @@ const Login = props => {
       })
       .catch(err => {
         if (err.response) {
-          displayToast(err.response.statusText, 'error')
+          showToast(err.response.statusText, 'error')
         }
       })
   }
-
-  useEffect(() => {
-    if (state) {
-      const { message, type } = state
-      displayToast(message, type)
-    }
-  }, [state])
 
   return (
     <Container>
