@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 const Toast = forwardRef((props, ref) => {
   const classes = useStyles()
-  const [toastArgs, setToastArgs] = useState(false)
+  const [toastArgs, setToastArgs] = useState({})
 
   useImperativeHandle(ref, () => ({
     show (message, type) {

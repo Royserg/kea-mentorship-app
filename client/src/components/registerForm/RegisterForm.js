@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import InputField from 'components/inputField/InputField'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+
+import useForm from 'hooks/useForm'
+import validate from './RegisterFormValidation'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,63 +18,69 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RegisterForm = ({ onSubmit }) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const initValues = {
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
+  }
+  const { values, errors, handleSubmit, handleChange } = useForm(
+    initValues,
+    onFormSubmit,
+    validate
+  )
 
-  const onFormSubmit = e => {
-    e.preventDefault()
-
-    if (!email) {
-      // showError('Email cannot be empty')
-      return
-    }
-
-    if (password !== passwordConfirm) {
-      // showError("passwords don't match")
-      return
-    }
-
+  function onFormSubmit () {
+    const { name, email, password } = values
     // Send data up to Registration component
     onSubmit({ name, email, password })
-
-    // Clear input fields
-    setName('')
-    setEmail('')
-    setPassword('')
-    setPasswordConfirm('')
   }
 
   const styles = useStyles()
 
   return (
-    <form onSubmit={onFormSubmit} className={styles.root}>
-      <InputField
-        label='Name'
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
+    <form onSubmit={handleSubmit} className={styles.root} noValidate>
+      <div>
+        <InputField
+          label='Name'
+          name='name'
+          value={values.name}
+          onChange={handleChange}
+          error={errors.name}
+        />
+      </div>
 
-      <InputField
-        label='Email'
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
+      <div>
+        <InputField
+          label='Email'
+          name='email'
+          value={values.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
+      </div>
 
-      <InputField
-        label='Password'
-        type='password'
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
+      <div>
+        <InputField
+          label='Password'
+          name='password'
+          type='password'
+          value={values.password}
+          onChange={handleChange}
+          error={errors.password}
+        />
+      </div>
 
-      <InputField
-        label='Confirm Password'
-        type='password'
-        value={passwordConfirm}
-        onChange={e => setPasswordConfirm(e.target.value)}
-      />
+      <div>
+        <InputField
+          label='Confirm Password'
+          name='passwordConfirm'
+          type='password'
+          value={values.passwordConfirm}
+          onChange={handleChange}
+          error={errors.passwordConfirm}
+        />
+      </div>
 
       <Button
         type='submit'
