@@ -1,7 +1,7 @@
 // Request needs a valid token which can be retrieved from loggin in, run login.rest to get token
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZmY1NDg0MGIxNjdiMzcwOGEyNTIwNiIsImlhdCI6MTU3NzAxNzQzMywiZXhwIjoxNTc3MDI0NjMzfQ.9Eb9Z2Q6ytwh4DnubbVs409y8wmsddt4W8tvQTkL9wI
 
-GET http://localhost:5000/api/users
+GET http://localhost:5000/api/users/me
 Authorization: {{token}}
 content-type: application/json
 
