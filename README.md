@@ -1,5 +1,9 @@
 # Mentorship App
-School mentorship programme where I learned basics of building full-stack web applications.
+School mentorship programme where I learned: \
+- basics of building full-stack web applications,
+- creating backend and connecting it to MongoDB,
+- registration and login functionality,
+- protected routes accessible to logged in users,
 
 #### Technologies used:
  - NodeJS (Express)
